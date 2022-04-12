@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: "author_id"
   has_many :received_requests, foreign_key: "recipient_id"
   has_many :sent_requests, foreign_key: "sender_id"
+  has_many :likes, foreign_key: "fan_id"
+  
 end
