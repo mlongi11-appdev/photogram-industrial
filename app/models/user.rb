@@ -35,6 +35,6 @@ class User < ApplicationRecord
   has_many :followers, through: :accepted_received_follow_requests, source: :sender
   has_many :liked_photos, through: :likes, source: :photo
 
-  validates :username, presence: true, uniqueness: { case_sensitive: false }
+  validates :username, presence: true, uniqueness: true
   
 end
