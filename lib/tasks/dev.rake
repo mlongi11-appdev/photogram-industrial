@@ -10,12 +10,15 @@ task sample_data: :environment do
 
   end
 
-  12.times do
-    name = Faker::Name.first_name.downcase
-    number = rand(100)
+  usernames = Array.new {Faker::Name.first_name.downcase}
+
+  usernames << "alice"
+  usernames << "bob"
+
+  usernames.each do |username|
     user = User.create(
-      email: "#{name}#{number}@website.com",
-      username: "#{name}#{number}",
+      email: "#{username}@website.com",
+      username: "#{username}",
       password: "password",
       private: [true, false].sample
     )
