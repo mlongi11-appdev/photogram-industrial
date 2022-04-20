@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root "photos#index"
 
-  get "users/:id" => "users#show", as: :user
-
   devise_for :users
 
   resources :comments
@@ -10,4 +8,5 @@ Rails.application.routes.draw do
   resources :likes
   resources :photos
 
+  get "/:username" => "users#show"
 end
